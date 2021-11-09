@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter?.viewDidLoad()
     }
 
     // MARK: - Properties
@@ -21,5 +22,11 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: PresenterToViewHomeProtocol{
-    // TODO: Implement View Output Methods
+    func onGetGamesSuccess(data: [GameModel]) {
+        print(String(describing: data.count))
+    }
+    
+    func onGetGamesFailure(error: String) {
+        
+    }
 }

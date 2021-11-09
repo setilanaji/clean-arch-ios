@@ -16,7 +16,7 @@ enum Endpoints {
 
 extension Endpoints: Endpoint {
     var base: String {
-        guard let value = PlistUtil.getValueString(of: "Base Url", from: .CleanGame) else {
+        guard let value = PlistUtil.getValueString(of: "Base Domain", from: .CleanGame) else {
             fatalError("Couldnt find file 'CleanGame-Info.plist' ")
         }
         return value

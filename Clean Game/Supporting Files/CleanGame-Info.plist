@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ApI Key</key>
+	<key>Api Key</key>
 	<string>b36ac7f0f5664e88813ce8890be4d568</string>
 	<key>Base Domain</key>
 	<string>https://api.rawg.io/api/</string>

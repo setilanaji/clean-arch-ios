@@ -14,6 +14,12 @@ final class ModuleInjection: NSObject {
         about: UIViewController
     )
     
+    private static func provideRepository() -> GameRepositoryProtocol {
+        let remote: RemoteManager = RemoteManager.sharedInstance()
+        
+        return GameRepository.shared(remote)
+    }
+    
     static func provideDetai() -> UIViewController {
         let viewController = DetailGameViewController()
         
@@ -50,7 +56,7 @@ final class ModuleInjection: NSObject {
         viewController.presenter = presenter
         viewController.presenter?.router = HomeRouter()
         viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = HomeInteractor()
+        viewController.presenter?.interactor = HomeInteractor(repository: provideRepository())
         viewController.presenter?.interactor?.presenter = presenter
         
         return navigation

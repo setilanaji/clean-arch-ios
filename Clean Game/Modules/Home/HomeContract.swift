@@ -11,7 +11,8 @@ import Foundation
 
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewHomeProtocol {
-   
+    func onGetGamesSuccess(data: [GameModel])
+    func onGetGamesFailure(error: String)
 }
 
 
@@ -21,6 +22,9 @@ protocol ViewToPresenterHomeProtocol {
     var view: PresenterToViewHomeProtocol? { get set }
     var interactor: PresenterToInteractorHomeProtocol? { get set }
     var router: PresenterToRouterHomeProtocol? { get set }
+    
+    func viewDidLoad()
+    func getGames(in page: Int)
 }
 
 
@@ -28,12 +32,14 @@ protocol ViewToPresenterHomeProtocol {
 protocol PresenterToInteractorHomeProtocol {
     
     var presenter: InteractorToPresenterHomeProtocol? { get set }
+    func getGames(in page: Int)
 }
 
 
 // MARK: Interactor Output (Interactor -> Presenter)
 protocol InteractorToPresenterHomeProtocol {
-    
+    func getGamesSuccess(result: BaseModel<GameModel>)
+    func getGamesFailure(error: APIError)
 }
 
 

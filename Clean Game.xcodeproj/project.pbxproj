@@ -42,6 +42,31 @@
 		9028840B2736C62D00F98DED /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902884062736C62D00F98DED /* DashboardRouter.swift */; };
 		9028840C2736C62D00F98DED /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902884072736C62D00F98DED /* DashboardViewController.swift */; };
 		9028840D2736C62D00F98DED /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902884082736C62D00F98DED /* DashboardInteractor.swift */; };
+		9087C1E2273982B60094254A /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9087C1E1273982B60094254A /* RemoteDataSource.swift */; };
+		90C47ADD273AA50100DF8AD3 /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47ADC273AA50100DF8AD3 /* RemoteManager.swift */; };
+		90C47ADF273AA62D00DF8AD3 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47ADE273AA62D00DF8AD3 /* CustomError.swift */; };
+		90C47AE1273AA87F00DF8AD3 /* RemoteLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AE0273AA87F00DF8AD3 /* RemoteLogger.swift */; };
+		90C47AE3273AAFFD00DF8AD3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AE2273AAFFD00DF8AD3 /* Result.swift */; };
+		90C47AE5273AB08700DF8AD3 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AE4273AB08700DF8AD3 /* BaseResponse.swift */; };
+		90C47AE8273AB34000DF8AD3 /* GameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AE7273AB34000DF8AD3 /* GameRepository.swift */; };
+		90C47AEA273AB56A00DF8AD3 /* GameReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AE9273AB56A00DF8AD3 /* GameReponse.swift */; };
+		90C47AEC273AB5AB00DF8AD3 /* PlatformResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AEB273AB5AB00DF8AD3 /* PlatformResponse.swift */; };
+		90C47AF0273AB61E00DF8AD3 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AEF273AB61E00DF8AD3 /* GameModel.swift */; };
+		90C47AF2273AB63100DF8AD3 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AF1273AB63100DF8AD3 /* BaseModel.swift */; };
+		90C47AF4273AB63E00DF8AD3 /* PlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AF3273AB63E00DF8AD3 /* PlatformModel.swift */; };
+		90C47AF6273AB88300DF8AD3 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AF5273AB88300DF8AD3 /* Image+Extension.swift */; };
+		90C47AF8273AB90B00DF8AD3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AF7273AB90B00DF8AD3 /* Color+Extension.swift */; };
+		90C47AFA273AB97E00DF8AD3 /* BasePlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AF9273AB97E00DF8AD3 /* BasePlatformModel.swift */; };
+		90C47AFC273AB98E00DF8AD3 /* BasePlatformResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AFB273AB98E00DF8AD3 /* BasePlatformResponse.swift */; };
+		90C47AFE273ABA9A00DF8AD3 /* GenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AFD273ABA9A00DF8AD3 /* GenreResponse.swift */; };
+		90C47B00273ABABA00DF8AD3 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47AFF273ABABA00DF8AD3 /* GenreModel.swift */; };
+		90C47B02273ABB1100DF8AD3 /* PublisherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47B01273ABB1100DF8AD3 /* PublisherResponse.swift */; };
+		90C47B04273ABB2900DF8AD3 /* PublisherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47B03273ABB2900DF8AD3 /* PublisherModel.swift */; };
+		90C47B08273ABBFA00DF8AD3 /* GameMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47B07273ABBFA00DF8AD3 /* GameMapper.swift */; };
+		90C47B0A273ABCA400DF8AD3 /* PublisherMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47B09273ABCA400DF8AD3 /* PublisherMapper.swift */; };
+		90C47B0C273ABCBB00DF8AD3 /* PlatformMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47B0B273ABCBB00DF8AD3 /* PlatformMapper.swift */; };
+		90C47B0E273ABCCB00DF8AD3 /* GenreMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47B0D273ABCCA00DF8AD3 /* GenreMapper.swift */; };
+		90C47B10273AC1E400DF8AD3 /* BaseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C47B0F273AC1E400DF8AD3 /* BaseMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +106,31 @@
 		902884062736C62D00F98DED /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
 		902884072736C62D00F98DED /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		902884082736C62D00F98DED /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
+		9087C1E1273982B60094254A /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		90C47ADC273AA50100DF8AD3 /* RemoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
+		90C47ADE273AA62D00DF8AD3 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		90C47AE0273AA87F00DF8AD3 /* RemoteLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLogger.swift; sourceTree = "<group>"; };
+		90C47AE2273AAFFD00DF8AD3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		90C47AE4273AB08700DF8AD3 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		90C47AE7273AB34000DF8AD3 /* GameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
+		90C47AE9273AB56A00DF8AD3 /* GameReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameReponse.swift; sourceTree = "<group>"; };
+		90C47AEB273AB5AB00DF8AD3 /* PlatformResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformResponse.swift; sourceTree = "<group>"; };
+		90C47AEF273AB61E00DF8AD3 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		90C47AF1273AB63100DF8AD3 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		90C47AF3273AB63E00DF8AD3 /* PlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformModel.swift; sourceTree = "<group>"; };
+		90C47AF5273AB88300DF8AD3 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		90C47AF7273AB90B00DF8AD3 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		90C47AF9273AB97E00DF8AD3 /* BasePlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePlatformModel.swift; sourceTree = "<group>"; };
+		90C47AFB273AB98E00DF8AD3 /* BasePlatformResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePlatformResponse.swift; sourceTree = "<group>"; };
+		90C47AFD273ABA9A00DF8AD3 /* GenreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreResponse.swift; sourceTree = "<group>"; };
+		90C47AFF273ABABA00DF8AD3 /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
+		90C47B01273ABB1100DF8AD3 /* PublisherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherResponse.swift; sourceTree = "<group>"; };
+		90C47B03273ABB2900DF8AD3 /* PublisherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherModel.swift; sourceTree = "<group>"; };
+		90C47B07273ABBFA00DF8AD3 /* GameMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMapper.swift; sourceTree = "<group>"; };
+		90C47B09273ABCA400DF8AD3 /* PublisherMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherMapper.swift; sourceTree = "<group>"; };
+		90C47B0B273ABCBB00DF8AD3 /* PlatformMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformMapper.swift; sourceTree = "<group>"; };
+		90C47B0D273ABCCA00DF8AD3 /* GenreMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreMapper.swift; sourceTree = "<group>"; };
+		90C47B0F273AC1E400DF8AD3 /* BaseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMapper.swift; sourceTree = "<group>"; };
 		9A46AF0EB06040A356306CF1 /* Pods-Clean Game.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clean Game.debug.xcconfig"; path = "Target Support Files/Pods-Clean Game/Pods-Clean Game.debug.xcconfig"; sourceTree = "<group>"; };
 		AC9A17BA6459E934893E8832 /* Pods_Clean_Game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clean_Game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EC1DE75166047A85233833 /* Pods-Clean Game.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clean Game.release.xcconfig"; path = "Target Support Files/Pods-Clean Game/Pods-Clean Game.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,7 +209,10 @@
 		902883C72736B2C700F98DED /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				90C47B06273ABBD700DF8AD3 /* Extension */,
+				90C47B05273ABBCB00DF8AD3 /* Mapper */,
 				902884012736C17E00F98DED /* PListUtil.swift */,
+				90C47ADE273AA62D00DF8AD3 /* CustomError.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -226,19 +279,13 @@
 		902883F52736B8FC00F98DED /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				90C47AED273AB5EC00DF8AD3 /* Domain */,
+				9087C1E02739828E0094254A /* Data */,
 				902883F82736BBF100F98DED /* DI */,
 				902883F72736BB7500F98DED /* Networking */,
-				902883F62736BB5A00F98DED /* Service */,
 				902883C72736B2C700F98DED /* Util */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		902883F62736BB5A00F98DED /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		902883F72736BB7500F98DED /* Networking */ = {
@@ -268,6 +315,90 @@
 				902884082736C62D00F98DED /* DashboardInteractor.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		9087C1E02739828E0094254A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9087C1E3273982BC0094254A /* Remote */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9087C1E3273982BC0094254A /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				90C47AE6273AB2A100DF8AD3 /* Repository */,
+				9087C1E4273982E10094254A /* Response */,
+				9087C1E1273982B60094254A /* RemoteDataSource.swift */,
+				90C47ADC273AA50100DF8AD3 /* RemoteManager.swift */,
+				90C47AE0273AA87F00DF8AD3 /* RemoteLogger.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		9087C1E4273982E10094254A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				90C47AE2273AAFFD00DF8AD3 /* Result.swift */,
+				90C47AE9273AB56A00DF8AD3 /* GameReponse.swift */,
+				90C47AE4273AB08700DF8AD3 /* BaseResponse.swift */,
+				90C47AEB273AB5AB00DF8AD3 /* PlatformResponse.swift */,
+				90C47AFB273AB98E00DF8AD3 /* BasePlatformResponse.swift */,
+				90C47AFD273ABA9A00DF8AD3 /* GenreResponse.swift */,
+				90C47B01273ABB1100DF8AD3 /* PublisherResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		90C47AE6273AB2A100DF8AD3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				90C47AE7273AB34000DF8AD3 /* GameRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		90C47AED273AB5EC00DF8AD3 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				90C47AEE273AB5FC00DF8AD3 /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		90C47AEE273AB5FC00DF8AD3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90C47AEF273AB61E00DF8AD3 /* GameModel.swift */,
+				90C47AF1273AB63100DF8AD3 /* BaseModel.swift */,
+				90C47AF3273AB63E00DF8AD3 /* PlatformModel.swift */,
+				90C47AF9273AB97E00DF8AD3 /* BasePlatformModel.swift */,
+				90C47AFF273ABABA00DF8AD3 /* GenreModel.swift */,
+				90C47B03273ABB2900DF8AD3 /* PublisherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		90C47B05273ABBCB00DF8AD3 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				90C47B07273ABBFA00DF8AD3 /* GameMapper.swift */,
+				90C47B09273ABCA400DF8AD3 /* PublisherMapper.swift */,
+				90C47B0B273ABCBB00DF8AD3 /* PlatformMapper.swift */,
+				90C47B0D273ABCCA00DF8AD3 /* GenreMapper.swift */,
+				90C47B0F273AC1E400DF8AD3 /* BaseMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		90C47B06273ABBD700DF8AD3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				90C47AF5273AB88300DF8AD3 /* Image+Extension.swift */,
+				90C47AF7273AB90B00DF8AD3 /* Color+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		C563F44A75BD871F4E103073 /* Pods */ = {
@@ -394,37 +525,62 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90C47B04273ABB2900DF8AD3 /* PublisherModel.swift in Sources */,
 				902883F22736B4E400F98DED /* FavoriteViewController.swift in Sources */,
+				90C47AF8273AB90B00DF8AD3 /* Color+Extension.swift in Sources */,
 				902883FA2736BC0200F98DED /* ModuleInjection.swift in Sources */,
 				902883FE2736C03F00F98DED /* Endpoints.swift in Sources */,
+				90C47B0C273ABCBB00DF8AD3 /* PlatformMapper.swift in Sources */,
 				902883F32736B4E400F98DED /* FavoriteInteractor.swift in Sources */,
 				902883FC2736BF5B00F98DED /* EndpointProtocol.swift in Sources */,
+				90C47B0A273ABCA400DF8AD3 /* PublisherMapper.swift in Sources */,
 				902883DB2736B4AD00F98DED /* AboutContract.swift in Sources */,
 				902883D22736B49200F98DED /* DetailGamePresenter.swift in Sources */,
+				90C47B00273ABABA00DF8AD3 /* GenreModel.swift in Sources */,
 				9028840B2736C62D00F98DED /* DashboardRouter.swift in Sources */,
+				90C47AE5273AB08700DF8AD3 /* BaseResponse.swift in Sources */,
+				9087C1E2273982B60094254A /* RemoteDataSource.swift in Sources */,
 				902883F02736B4E400F98DED /* FavoritePresenter.swift in Sources */,
+				90C47AF6273AB88300DF8AD3 /* Image+Extension.swift in Sources */,
 				902883DD2736B4AD00F98DED /* AboutRouter.swift in Sources */,
+				90C47AFE273ABA9A00DF8AD3 /* GenreResponse.swift in Sources */,
+				90C47B10273AC1E400DF8AD3 /* BaseMapper.swift in Sources */,
 				902883E82736B4BD00F98DED /* HomeViewController.swift in Sources */,
+				90C47AFA273AB97E00DF8AD3 /* BasePlatformModel.swift in Sources */,
 				902883E62736B4BD00F98DED /* HomePresenter.swift in Sources */,
 				902884022736C17E00F98DED /* PListUtil.swift in Sources */,
 				902883E72736B4BD00F98DED /* HomeRouter.swift in Sources */,
 				902883D42736B49200F98DED /* DetailGameViewController.swift in Sources */,
 				902883B22736AB8100F98DED /* AppDelegate.swift in Sources */,
 				902884092736C62D00F98DED /* DashboardContract.swift in Sources */,
+				90C47AE3273AAFFD00DF8AD3 /* Result.swift in Sources */,
 				902883DF2736B4AD00F98DED /* AboutInteractor.swift in Sources */,
+				90C47AEC273AB5AB00DF8AD3 /* PlatformResponse.swift in Sources */,
+				90C47B0E273ABCCB00DF8AD3 /* GenreMapper.swift in Sources */,
+				90C47AF0273AB61E00DF8AD3 /* GameModel.swift in Sources */,
+				90C47ADF273AA62D00DF8AD3 /* CustomError.swift in Sources */,
 				902883DE2736B4AD00F98DED /* AboutViewController.swift in Sources */,
 				902883D32736B49200F98DED /* DetailGameRouter.swift in Sources */,
 				902883D52736B49200F98DED /* DetailGameInteractor.swift in Sources */,
+				90C47AE1273AA87F00DF8AD3 /* RemoteLogger.swift in Sources */,
+				90C47B02273ABB1100DF8AD3 /* PublisherResponse.swift in Sources */,
+				90C47AFC273AB98E00DF8AD3 /* BasePlatformResponse.swift in Sources */,
 				9028840A2736C62D00F98DED /* DashboardPresenter.swift in Sources */,
 				9028840D2736C62D00F98DED /* DashboardInteractor.swift in Sources */,
+				90C47AF2273AB63100DF8AD3 /* BaseModel.swift in Sources */,
+				90C47ADD273AA50100DF8AD3 /* RemoteManager.swift in Sources */,
 				902883E52736B4BD00F98DED /* HomeContract.swift in Sources */,
+				90C47AF4273AB63E00DF8AD3 /* PlatformModel.swift in Sources */,
+				90C47AEA273AB56A00DF8AD3 /* GameReponse.swift in Sources */,
 				902883EF2736B4E400F98DED /* FavoriteContract.swift in Sources */,
 				9028840C2736C62D00F98DED /* DashboardViewController.swift in Sources */,
 				902883D12736B49200F98DED /* DetailGameContract.swift in Sources */,
+				90C47B08273ABBFA00DF8AD3 /* GameMapper.swift in Sources */,
 				902883E92736B4BD00F98DED /* HomeInteractor.swift in Sources */,
 				902883DC2736B4AD00F98DED /* AboutPresenter.swift in Sources */,
 				902883B42736AB8100F98DED /* SceneDelegate.swift in Sources */,
 				902883F12736B4E400F98DED /* FavoriteRouter.swift in Sources */,
+				90C47AE8273AB34000DF8AD3 /* GameRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
