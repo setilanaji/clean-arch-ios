@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class GenerMapper {
+final class GenreMapper {
     static func mapGenreResponsesToDomains(
         input genreResponses: [GenreReponse]
     ) -> [GenreModel] {

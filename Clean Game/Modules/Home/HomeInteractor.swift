@@ -23,9 +23,31 @@ class HomeInteractor: PresenterToInteractorHomeProtocol {
             case .failure(let error):
                 self.presenter?.getGamesFailure(error: error)
             case .success(let base):
-                let list = GameMapper.mapGameResponsesToDomains(input: base.result)
-                let base = BaseMapper.mapBaseResponseToDomain(input: base,  data: list)
                 self.presenter?.getGamesSuccess(result: base)
+            }
+        }
+    }
+    
+    func getPlatforms(in page: Int) {
+//        repository.getPlatforms(in: page) { result in
+//            switch result {
+//            case .failure(let error):
+//                self.presenter?.getPlatformsFailure(error: error)
+//            case .success(let base):
+//                let list = PlatformMapper.mapPlatformResponsesToDomains(input: base.result)
+//                let base = BaseMapper.mapBaseResponseToDomain(input: base, data: list)
+//                self.presenter?.getPlatformsSuccess(result: base)
+//            }
+//        }
+    }
+    
+    func getGenres(in page: Int) {
+        repository.getGenres(in: page) { result in
+            switch result {
+            case .success(let base):
+                self.presenter?.getGenresSuccess(result: base)
+            case .failure(let error):
+                self.presenter?.getGenresFailure(error: error)
             }
         }
     }

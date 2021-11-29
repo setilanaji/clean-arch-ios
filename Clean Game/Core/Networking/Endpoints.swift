@@ -12,6 +12,9 @@ enum Endpoints {
     case getGamesIn(page: Int)
     case getGameDetailWith(id: Int)
     case searchFor(key: String, page: Int)
+    case getGenres(page: Int)
+    case getPlatforms(page: Int)
+    case getParentPlatforms
 }
 
 extension Endpoints: Endpoint {
@@ -33,6 +36,10 @@ extension Endpoints: Endpoint {
         switch self {
         case .searchFor(let key, let page): return self.apiKey.merging(["search": key, "page": page]) {(current, _) in current}
         case .getGamesIn(let page): return self.apiKey.merging(["page": page]) {(current, _) in current}
+        case .getPlatforms(let page):
+            return self.apiKey.merging(["page": page]) {(current, _) in current}
+        case .getGenres(let page):
+            return self.apiKey.merging(["page": page]) {(current, _) in current}
         default: return self.apiKey
         }
     }
@@ -42,6 +49,9 @@ extension Endpoints: Endpoint {
         case .getGamesIn: return "games"
         case .getGameDetailWith(let id): return "games/\(id)"
         case .searchFor: return "games"
+        case .getGenres: return "genres"
+        case .getPlatforms: return "platforms"
+        case .getParentPlatforms: return "platforms/lists/parents"
         }
     }
     

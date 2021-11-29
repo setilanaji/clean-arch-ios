@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class ModuleInjection: NSObject {
     typealias DashboardModules = (
@@ -15,9 +16,11 @@ final class ModuleInjection: NSObject {
     )
     
     private static func provideRepository() -> GameRepositoryProtocol {
-        let remote: RemoteManager = RemoteManager.sharedInstance()
+        let realm = try? Realm()
         
-        return GameRepository.shared(remote)
+        let remote: RemoteDataSource = RemoteDataSource.shared(RemoteManager.sharedInstance())
+        let locale: LocaleDataSource = LocaleDataSource.shared(realm)
+        return GameRepository.shared(remote, locale)
     }
     
     static func provideDetai() -> UIViewController {

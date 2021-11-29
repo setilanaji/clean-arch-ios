@@ -13,6 +13,12 @@ import Foundation
 protocol PresenterToViewHomeProtocol {
     func onGetGamesSuccess(data: [GameModel])
     func onGetGamesFailure(error: String)
+    
+    func onGetGenresSuccess(data: [GenreModel])
+    func onGetGenresFailure(error: String)
+    
+    func onGetPlatformsSuccess(data: [PlatformModel])
+    func onGetPlatformsFailure(error: String)
 }
 
 
@@ -25,6 +31,8 @@ protocol ViewToPresenterHomeProtocol {
     
     func viewDidLoad()
     func getGames(in page: Int)
+    func getGenres(in page: Int)
+    func getPlatforms(in page: Int)
 }
 
 
@@ -33,6 +41,8 @@ protocol PresenterToInteractorHomeProtocol {
     
     var presenter: InteractorToPresenterHomeProtocol? { get set }
     func getGames(in page: Int)
+    func getGenres(in page: Int)
+    func getPlatforms(in page: Int)
 }
 
 
@@ -40,6 +50,12 @@ protocol PresenterToInteractorHomeProtocol {
 protocol InteractorToPresenterHomeProtocol {
     func getGamesSuccess(result: BaseModel<GameModel>)
     func getGamesFailure(error: APIError)
+    
+    func getPlatformsSuccess(result: BaseModel<PlatformModel>)
+    func getPlatformsFailure(error: APIError)
+    
+    func getGenresSuccess(result: BaseModel<GenreModel>)
+    func getGenresFailure(error: APIError)
 }
 
 
