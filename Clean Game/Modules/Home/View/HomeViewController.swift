@@ -10,6 +10,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    private var isLoading = false {
+        didSet {
+            if isLoading {
+                refreshControl.beginRefreshing()
+            } else {
+                refreshControl.endRefreshing()
+            }
+        }
+    }
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +30,21 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     var presenter: ViewToPresenterHomeProtocol?
     
-    var models: [HomeCell] = [.genreSection(models: [], rows: 1)] {
+    private let defaultSections: [HomeCell] = [.genreSection(models: [], rows: 1), .popularSection(models: [], rows: 1), .newestSection(models: [], rows: 1)]
+    
+    var models: [HomeCell] = [.genreSection(models: [], rows: 1), .popularSection(models: [], rows: 1), .newestSection(models: [], rows: 1)] {
         didSet {
             self.tableView.reloadData()
         }
     }
     
+    private let refreshControl = UIRefreshControl()
+    
     lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.contentInset = .zero
+        table.backgroundColor = UIColor(named: "Color-Background")
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         let genresNib = UINib(nibName: GenreSectionTableViewCell.identifier, bundle: nil)
         table.register(genresNib, forCellReuseIdentifier: GenreSectionTableViewCell.identifier)
@@ -46,6 +61,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     private func setupUI() {
         setupTableView()
+        setupRefreshControl()
     }
     
     private func setupTableView() {
@@ -55,23 +71,52 @@ extension HomeViewController {
         
         tableView.anchor(top: view.topAnchor, paddingTop: 0, bottom: view.bottomAnchor, paddingBottom: 0, left: view.leadingAnchor, paddingLeft: 0, right: view.trailingAnchor, paddingRight: 0, width: 0, height: 0)
     }
+    
+    private func setupRefreshControl() {
+        tableView.refreshControl = refreshControl
+        
+        refreshControl.addTarget(self, action: #selector(refreshGames(_:)), for: .valueChanged)
+        refreshControl.tintColor = .systemGray4
+    }
+    
+    @objc private func refreshGames(_ sender: Any) {
+        self.models = [.genreSection(models: [], rows: 1), .popularSection(models: [], rows: 1), .newestSection(models: [], rows: 1)]
+        getData()
+    }
+    
+    private func getData() {
+        self.isLoading = true
+        self.presenter?.viewDidLoad()
+    }
 }
 
 extension HomeViewController: PresenterToViewHomeProtocol{
     func onGetGamesSuccess(data: [GameModel]) {
-        print(String(describing: data.count))
+        DispatchQueue.main.async {
+            self.isLoading = false
+            if let index = self.models.firstIndex(where: { element in
+                if case .popularSection = element {
+                    return true
+                } else {
+                    return false
+                }
+            }) {
+                self.models[index] = .popularSection(models: data, rows: 1)
+            }
+        }
     }
     
     func onGetGamesFailure(error: String) {
-        
+        isLoading = false
     }
     
     func onGetGenresFailure(error: String) {
-        
+        isLoading = false
     }
     
     func onGetGenresSuccess(data: [GenreModel]) {
         DispatchQueue.main.async {
+            self.isLoading = false
             if let index = self.models.firstIndex(where: { element in
                 if case .genreSection = element {
                     return true
@@ -84,11 +129,22 @@ extension HomeViewController: PresenterToViewHomeProtocol{
         }
     }
     
-    func onGetPlatformsFailure(error: String) {
-        
+    func onGeLastestGamesFailure(error: String) {
+        isLoading = false
     }
     
-    func onGetPlatformsSuccess(data: [PlatformModel]) {
-        
+    func onGetLastestGamesSuccess(data: [GameModel]) {
+        DispatchQueue.main.async {
+            self.isLoading = false
+            if let index = self.models.firstIndex(where: { element in
+                if case .newestSection = element {
+                    return true
+                } else {
+                    return false
+                }
+            }) {
+                self.models[index] = .newestSection(models: data, rows: 1)
+            }
+        }
     }
 }

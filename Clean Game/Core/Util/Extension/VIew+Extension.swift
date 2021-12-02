@@ -7,9 +7,10 @@
 
 import UIKit
 
-// MARK: - Auto Layout
+
 extension UIView {
     
+    // MARK: - Auto Layout
     func anchor(top : NSLayoutYAxisAnchor? , paddingTop : CGFloat ,
                 bottom : NSLayoutYAxisAnchor? , paddingBottom : CGFloat ,
                 left: NSLayoutXAxisAnchor?, paddingLeft: CGFloat,
@@ -42,4 +43,26 @@ extension UIView {
             
         }
     }
+    
+    // MARK: - Animation
+    func showAnimation(_ completionBlock: @escaping () -> Void) {
+        isUserInteractionEnabled = false
+        UIView.animate(withDuration: 0.1,
+                       delay: 0,
+                       options: .curveLinear,
+                       animations: { [weak self] in
+            self?.transform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
+        }) {  (done) in
+            UIView.animate(withDuration: 0.1,
+                           delay: 0,
+                           options: .curveLinear,
+                           animations: { [weak self] in
+                self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+            }) { [weak self] (_) in
+                self?.isUserInteractionEnabled = true
+                completionBlock()
+            }
+        }
+    }
+    
 }

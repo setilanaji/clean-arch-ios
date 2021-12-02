@@ -42,6 +42,11 @@ class GenreSectionTableViewCell: UITableViewCell {
         self.collectionView.isScrollEnabled = false
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
+        contentView.backgroundColor = UIColor(named: "Color-Background")
+
+        collectionView.backgroundColor = .clear
+        
         let nib = UINib(nibName: GenreCollectionViewCell.identifier, bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: GenreCollectionViewCell.identifier)
         let skeletonNib = UINib(nibName: SkeletonGenreCollectionViewCell.identifier, bundle: nil)

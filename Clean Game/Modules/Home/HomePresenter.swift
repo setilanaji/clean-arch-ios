@@ -18,11 +18,12 @@ class HomePresenter: ViewToPresenterHomeProtocol {
     func viewDidLoad() {
         self.getGames(in: 1)
         self.getGenres(in: 1)
+        self.getLastestGames(in: 1)
     }
     
     func getGames(in page: Int) {
         DispatchQueue.global(qos: .background).async {
-            self.interactor?.getGames(in: page)
+            self.interactor?.getPopularGames(in: page)
         }
     }
     
@@ -32,20 +33,24 @@ class HomePresenter: ViewToPresenterHomeProtocol {
         }
     }
     
-    func getPlatforms(in page: Int) {
+    func getLastestGames(in page: Int) {
         DispatchQueue.global(qos: .background).async {
-            self.interactor?.getPlatforms(in: page)
+            self.interactor?.getLastestGames(in: page)
         }
+    }
+    
+    func tapGame(with id: Int) {
+        router?.toDetail(on: view!)
     }
 }
 
 extension HomePresenter: InteractorToPresenterHomeProtocol {
-    func getPlatformsSuccess(result: BaseModel<PlatformModel>) {
-        view?.onGetPlatformsSuccess(data: result.result)
+    func getLastestGamesSuccess(result: BaseModel<GameModel>) {
+        view?.onGetLastestGamesSuccess(data: result.result)
     }
     
-    func getPlatformsFailure(error: APIError) {
-        view?.onGetPlatformsFailure(error: error.localizedDescription)
+    func getLastestGamesFailure(error: APIError) {
+        view?.onGeLastestGamesFailure(error: error.localizedDescription)
     }
     
     func getGenresSuccess(result: BaseModel<GenreModel>) {
@@ -56,11 +61,11 @@ extension HomePresenter: InteractorToPresenterHomeProtocol {
         view?.onGetGenresFailure(error: error.localizedDescription)
     }
     
-    func getGamesSuccess(result: BaseModel<GameModel>) {
+    func getPopularGamesSuccess(result: BaseModel<GameModel>) {
         view?.onGetGamesSuccess(data: result.result)
     }
     
-    func getGamesFailure(error: APIError) {
+    func getPopularGamesFailure(error: APIError) {
         view?.onGetGamesFailure(error: error.localizedDescription)
     }
     

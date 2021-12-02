@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol GameRepositoryProtocol {
     func getGames(
-        in page: Int,
-        completion: @escaping (Result<BaseModel<GameModel>, APIError>) -> Void)
+        in page: Int
+    ) -> Observable<BaseModel<GameModel>>
     
     func getGenres(
-        in page: Int,
-        completion: @escaping (Result<BaseModel<GenreModel>, APIError>) -> Void)
+        in page: Int
+    ) -> Observable<BaseModel<GenreModel>>
 }
 
 final class GameRepository: NSObject {
@@ -35,30 +36,22 @@ final class GameRepository: NSObject {
 }
 
 extension GameRepository: GameRepositoryProtocol {
-
-    func getGames(in page: Int, completion: @escaping (Result<BaseModel<GameModel>, APIError>) -> Void) {
-        remote.getGames(in: page) { result in
-            switch result {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success(let base):
-                let list = GameMapper.mapGameResponsesToDomains(input: base.result)
-                let baseModel = BaseMapper.mapBaseResponseToDomain(input: base,  data: list)
-                completion(.success(baseModel))
+    
+    func getGames(in page: Int) -> Observable<BaseModel<GameModel>> {
+        return self.remote.getGames(in: page)
+            .map { result in
+                let list = GameMapper.mapGameResponsesToDomains(input: result.result)
+                let baseModel = BaseMapper.mapBaseResponseToDomain(input: result, data: list)
+                return baseModel
             }
-        }
     }
     
-    func getGenres(in page: Int, completion: @escaping (Result<BaseModel<GenreModel>, APIError>) -> Void) {
-        remote.getGenres(in: page) { result in
-            switch result {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success(let base):
-                let list = GenreMapper.mapGenreResponsesToDomains(input: base.result)
-                let baseModel = BaseMapper.mapBaseResponseToDomain(input: base,  data: list)
-                completion(.success(baseModel))
+    func getGenres(in page: Int) -> Observable<BaseModel<GenreModel>> {
+        return self.remote.getGenres(in: page)
+            .map { result in
+                let list = GenreMapper.mapGenreResponsesToDomains(input: result.result)
+                let baseModel = BaseMapper.mapBaseResponseToDomain(input: result,  data: list)
+                return baseModel
             }
-        }
     }
 }

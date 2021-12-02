@@ -10,7 +10,10 @@ import UIKit
 
 class HomeRouter: PresenterToRouterHomeProtocol {
     
-    static func toDetail() {
-        
+    func toDetail(on view: PresenterToViewHomeProtocol) {
+        let detail = ModuleInjection.provideDetai()
+        detail.hidesBottomBarWhenPushed = true
+        let viewController = view as! HomeViewController
+        viewController.navigationController?.pushViewController(detail, animated: true)
     }
 }

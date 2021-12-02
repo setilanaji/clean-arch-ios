@@ -6,19 +6,21 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol RemoteDataSourceProtocol: AnyObject {
+    
     func getGames(
-        in page: Int,
-        completion: @escaping (Result<BaseResponse<GameResponse>, APIError>) -> Void)
+        in page: Int
+    ) -> Observable<BaseResponse<GameResponse>>
     
     func getGenres(
-        in page: Int,
-        completion: @escaping (Result<BaseResponse<GenreReponse>, APIError>) -> Void)
+        in page: Int
+    ) -> Observable<BaseResponse<GenreReponse>>
     
     func getPlatforms(
-        in page: Int,
-        completion: @escaping (Result<BaseResponse<PlatformResponse>, APIError>) -> Void)
+        in page: Int
+    ) -> Observable<BaseResponse<PlatformResponse>>
 }
 
 final class RemoteDataSource: NSObject {
@@ -37,16 +39,17 @@ final class RemoteDataSource: NSObject {
 }
 
 extension RemoteDataSource: RemoteDataSourceProtocol {
-    func getGames(in page: Int, completion: @escaping (Result<BaseResponse<GameResponse>, APIError>) -> Void) {
-        self.manager.call(type: Endpoints.getGamesIn(page: page), completion: completion)
+    
+    func getGames(in page: Int) -> Observable<BaseResponse<GameResponse>> {
+        return self.manager.callBase(type: Endpoints.getGamesIn(page: page))
     }
     
-    func getGenres(in page: Int, completion: @escaping (Result<BaseResponse<GenreReponse>, APIError>) -> Void) {
-        self.manager.call(type: Endpoints.getGenres(page: page), completion: completion)
+    func getGenres(in page: Int) -> Observable<BaseResponse<GenreReponse>> {
+        return self.manager.callBase(type: Endpoints.getGenres(page: page))
     }
     
-    func getPlatforms(in page: Int, completion: @escaping (Result<BaseResponse<PlatformResponse>, APIError>) -> Void) {
-        self.manager.call(type: Endpoints.getPlatforms(page: page), completion: completion)
+    func getPlatforms(in page: Int) -> Observable<BaseResponse<PlatformResponse>> {
+        return self.manager.callBase(type: Endpoints.getPlatforms(page: page))
     }
     
 }

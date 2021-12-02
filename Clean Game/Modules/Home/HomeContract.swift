@@ -10,20 +10,20 @@ import Foundation
 
 
 // MARK: View Output (Presenter -> View)
-protocol PresenterToViewHomeProtocol {
+protocol PresenterToViewHomeProtocol: AnyObject {
     func onGetGamesSuccess(data: [GameModel])
     func onGetGamesFailure(error: String)
     
     func onGetGenresSuccess(data: [GenreModel])
     func onGetGenresFailure(error: String)
     
-    func onGetPlatformsSuccess(data: [PlatformModel])
-    func onGetPlatformsFailure(error: String)
+    func onGetLastestGamesSuccess(data: [GameModel])
+    func onGeLastestGamesFailure(error: String)
 }
 
 
 // MARK: View Input (View -> Presenter)
-protocol ViewToPresenterHomeProtocol {
+protocol ViewToPresenterHomeProtocol: AnyObject {
     
     var view: PresenterToViewHomeProtocol? { get set }
     var interactor: PresenterToInteractorHomeProtocol? { get set }
@@ -32,27 +32,29 @@ protocol ViewToPresenterHomeProtocol {
     func viewDidLoad()
     func getGames(in page: Int)
     func getGenres(in page: Int)
-    func getPlatforms(in page: Int)
+    func getLastestGames(in page: Int)
+    func tapGame(with id: Int)
 }
 
 
 // MARK: Interactor Input (Presenter -> Interactor)
-protocol PresenterToInteractorHomeProtocol {
+protocol PresenterToInteractorHomeProtocol: AnyObject {
     
     var presenter: InteractorToPresenterHomeProtocol? { get set }
-    func getGames(in page: Int)
+    
+    func getPopularGames(in page: Int)
     func getGenres(in page: Int)
-    func getPlatforms(in page: Int)
+    func getLastestGames(in page: Int)
 }
 
 
 // MARK: Interactor Output (Interactor -> Presenter)
-protocol InteractorToPresenterHomeProtocol {
-    func getGamesSuccess(result: BaseModel<GameModel>)
-    func getGamesFailure(error: APIError)
+protocol InteractorToPresenterHomeProtocol: AnyObject {
+    func getPopularGamesSuccess(result: BaseModel<GameModel>)
+    func getPopularGamesFailure(error: APIError)
     
-    func getPlatformsSuccess(result: BaseModel<PlatformModel>)
-    func getPlatformsFailure(error: APIError)
+    func getLastestGamesSuccess(result: BaseModel<GameModel>)
+    func getLastestGamesFailure(error: APIError)
     
     func getGenresSuccess(result: BaseModel<GenreModel>)
     func getGenresFailure(error: APIError)
@@ -60,6 +62,6 @@ protocol InteractorToPresenterHomeProtocol {
 
 
 // MARK: Router Input (Presenter -> Router)
-protocol PresenterToRouterHomeProtocol {
-    
+protocol PresenterToRouterHomeProtocol: AnyObject {
+    func toDetail(on view: PresenterToViewHomeProtocol)
 }
